@@ -1,0 +1,4 @@
+PHPMyAdmin Installation complete. You can log in at: 
+https://shop-atsushisss.c9users.io/phpmyadmin
+with the following username (and blank password):
+Username: atsushisss
