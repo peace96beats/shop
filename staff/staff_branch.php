@@ -1,5 +1,5 @@
 <?php
-
+require_once('../session.php');
 $staff_code = $_POST['staffcode'];
 
 if(isset($_POST['disp'])==true){
@@ -14,11 +14,9 @@ if(isset($_POST['disp'])==true){
 }
 
 if(isset($_POST['add'])==true){
-    
-    if(isset($_POST['staffcode'])==false){
+
         header('Location:staff_add.php');
         exit();
-    }
 
 }
 

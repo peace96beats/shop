@@ -1,5 +1,11 @@
 <?php
-require_once('../session.php');
+session_start();
+$_SESSION=array();
+if(isset($_COOKIE[session_name()])==true){
+    setcookie(session_name(), '', time()-42000, '/');
+}
+session_destroy();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,8 +16,8 @@ require_once('../session.php');
 </head>
 <body>
     <div class="container">
-        <p>スタッフが選択されていません。</p>
-        <a href="staff_list.php">戻る</a>
+        <h1>ログアウトしました</h1>
+        <a href="../staff_login//staff_login.html">ログイン画面へ</a>
     </div>
 </body>
 </html>

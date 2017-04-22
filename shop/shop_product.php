@@ -1,13 +1,28 @@
 <?php
     require_once('../function.php');
     require_once('../config.php');
-    require_once('../session.php');
+    
+    session_start();
+    session_regenerate_id(true);
+    if(isset($_SESSION['member_login'])==false)
+    {
+        print 'ようこそゲスト様';
+        print '<a href="member_login.html">会員ログイン</a><br/>';
+        print '<br/>';
+    }else{
+        print 'ようこそ';
+        print $_SESSION['member_name'];
+        print '様';
+        print '<a href="member_logout.php">ログアウト</a><br/>';
+        print '<br/>';
+    }
+
 ?>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>pro Display</title>
+    <title>shop Display</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />        
 </head>
 <body>
@@ -33,8 +48,10 @@
           if($pro_gazou_name == ''){
               $disp_gazou='';
           }else{
-              $disp_gazou='<img src="./gazou/'.$pro_gazou_name.'">';
+              $disp_gazou='<img src="../product/gazou/'.$pro_gazou_name.'">';
           }
+          
+          print '<a href="shop_cartin.php?procode='.$pro_code.'">カートに入れる</a><br/><br/>';
 
       } catch (Exception $e) {
           print 'damedawa-';

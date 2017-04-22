@@ -1,5 +1,7 @@
 <?php
 
+require_once('../session.php');
+
 $pro_code = $_POST['procode'];
 
 if(isset($_POST['disp'])==true){

@@ -1,6 +1,7 @@
 <?php
     require_once('../function.php');
     require_once('../config.php');
+    require_once('../session.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,7 +33,7 @@
           if($pro_gazou_name_old == ''){
               $disp_gazou = '';
           }else{
-              $disp_gzou = '<img src="./gazou/'.$pro_gazou_name_old.'">';
+              $disp_gazou = '<img src="./gazou/'.$pro_gazou_name_old.'">';
           }
 
       } catch (Exception $e) {

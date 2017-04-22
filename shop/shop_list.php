@@ -1,7 +1,19 @@
 <?php
     require_once('../function.php');
     require_once('../config.php');
-    require_once('../session.php');
+    
+    session_start();
+    session_regenerate_id(true);
+    if(isset($_SESSION['member_login']) == false){
+        print 'ようこそゲスト様';
+        print '<a href="member_login.html">会員ログイン</a><br/>';
+        print '<br/>';
+    }else{
+        print 'ようこそ'.$_SESSION['member_name'].'様'.'<a href="member_logout.php">ログアウト</a><br/>';
+        print '<br/>';
+    }
+    
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,36 +35,31 @@
                 
                 print '<h1>商品一覧</h1><br/>';
                 
-                print '<form method="post" action="pro_branch.php">';
                 while(true)
                 {
                     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
                     if($rec==false){
                         break;
                     }
-                    print '<label><input type="radio" name="procode" value="'.$rec['code'].'">';
-                    print $rec['name'].'---</label><br/>';
-                    print $rec['price'].'円</label><br/>';
+
+                    print '<a href="shop_product.php?procode='.$rec['code'].'">';
+                    print $rec['name'].'---';
+                    print $rec['price'].'円';
+                    print '</a>';
                     print '<br/>';
                 }
 
-                print '<input type="submit" name="disp" value="参照">';                
-                print '<input type="submit" name="add" value="追加">';
-                print '<input type="submit" name="edit" value="修正">';
-                print '<input type="submit" name="delete" value="削除"></form>';                
-                
-                
             }
             catch(Exception $e){
                 print 'ダメでした～';
                 exit();
             }
 
-        ?>
-       <p>
-           <a href="../staff_login/staff_top.php">トップメニューへ</a>
-       </p> 
+                    print '<br/>';
+                    print '<a href="shop_cartlook.php">カートを見る</a><br/>';
 
+        ?>
+        
     </div>
 </body>
 </html>

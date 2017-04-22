@@ -1,6 +1,7 @@
 <?php
     require_once('../function.php');
     require_once('../config.php');
+    require_once('../session.php');    
 ?>
 <!doctype html>
 <html lang="en">
@@ -47,7 +48,10 @@
             }
 
         ?>
-        
+       
+       <p>
+           <a href="../staff_login/staff_top.php">トップメニューへ</a>
+       </p> 
     </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
     require_once('../function.php');
     require_once('../config.php');
+    require_once('../session.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,8 +15,8 @@
         <h1>pro Delte Done</h1>
         <?php
             try{
-                $pro_code = $_POST['code'];                
-
+                $pro_code = $_POST['code'];           
+                $pro_gazou_name=$_POST['gazou_name'];
 
                 $sql = 'DELETE FROM mst_product WHERE code=?';
                 $stmt = $dbh->prepare($sql);
@@ -23,6 +24,10 @@
                 $stmt->execute($data);
                 
                 $dbh = null;
+                
+            if($pro_gazou_name != ''){
+                unlink('./gazou/'.$pro_gazou_name);
+            }    
 
             } catch(Exception $e){
                 print 'ダメでした～';

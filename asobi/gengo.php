@@ -1,6 +1,3 @@
-<?php
-require_once('../session.php');
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,8 +7,16 @@ require_once('../session.php');
 </head>
 <body>
     <div class="container">
-        <p>スタッフが選択されていません。</p>
-        <a href="staff_list.php">戻る</a>
+        <?php
+        
+            require_once('../common/common.php');
+        
+            $seireki = $_POST['seireki'];
+            
+            $wareki = gengo($seireki);
+            print $wareki;
+
+        ?>
     </div>
 </body>
 </html>
