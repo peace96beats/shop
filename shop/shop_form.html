@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注文</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />    
+</head>
+<body>
+    <div class="container">
+        <h1>お客様情報を入力してください。</h1>
+        <form method="post" action="shop_form_check.php">
+            <h3>お名前</h3>
+            <input type="text" name="onamae"/><br/>
+            <h3>メールアドレス</h3>
+            <input type="text" name="email"/><br/>
+            <h3>郵便番号</h3>
+            <input type="text" name="postal1"/><br/>-
+            <input type="text" name="postal2"/><br/>
+            <h3>住所</h3>
+            <input type="text" name="address"/><br/>
+            <h3>電話番号</h3>
+            <input type="text" name="tel"/><br/>
+            <input type="button" onclick="history.back()" value="戻る">
+            <input type="submit" value="OK"/>
+        </form>
+    </div>
+</body>
+</html>
